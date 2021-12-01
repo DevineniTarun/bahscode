@@ -56,37 +56,42 @@ function App() {
 
   return (
     <div className="App">
-      <h1>My Drive</h1>
-      <input
+      <nav class='hdr'>
+        <img class='g_img' src='https://ssl.gstatic.com/images/branding/product/2x/hh_drive_96dp.png' alt='image' height='100px' width='100px'/>
+      <h1 class='font' >Personal Drive</h1>
+      </nav>
+      <input class='image_name'
         onChange={e => setFormData({ ...formData, 'name': e.target.value})}
         placeholder="Image Name"
         value={formData.name}
       />
-      <input
+      <input class='image_desc'
         onChange={e => setFormData({ ...formData, 'description': e.target.value})}
         placeholder="Image Description"
         value={formData.description}
       />
-      <input
+      <input class='file_cls'
         type="file"
         onChange={onChange}
       />
-      <button onClick={createNote}>Upload Image</button>
-      <div style={{marginBottom: 550}}>
+      <button class='upload_img' onClick={createNote}>Upload Image</button>
+      <div class = 'u_img' style={{marginBottom: 550}}>
       {
       notes.map(note => (
-      <div key={note.id || note.name}>
+      <div class='t_img' key={note.id || note.name}>
       <h2>{note.name}</h2>
       <p>{note.description}</p>
-      <button onClick={() => deleteNote(note)}>Delete image</button>
       {
-        note.image && <img src={note.image} style={{width: 400}} />
+        note.image && <img class='imag' src={note.image}  />
       }
+       <button onClick={() => deleteNote(note)}>Delete image</button>
       </div>
       ))
       }
       </div>
+      <div class='sign_out'>
       <AmplifySignOut />
+      </div>
     </div>
   );
 }
